@@ -131,18 +131,24 @@
         <span class="hidden lg:inline">Cart</span>
         <span class="bg-flat-text text-flat-bg text-[10px] px-[6px] py-[2px] ml-1 flex items-center justify-center min-w-[20px]">2</span>
       </button>
-      <button class="md:hidden text-flat-text" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Menu">
+      <button class="md:hidden text-flat-text" onclick="toggleMobileMenu()" aria-label="Menu">
         <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </div>
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden absolute top-[90px] left-0 w-full bg-flat-bg border-b border-flat-border p-6 flex flex-col gap-4">
-    <a href="#" class="text-sm font-semibold uppercase tracking-widest">Mens</a>
-    <a href="#" class="text-sm font-semibold uppercase tracking-widest">Womens</a>
-    <a href="#" class="text-sm font-semibold uppercase tracking-widest">Kids</a>
-    <a href="#" class="text-sm font-semibold uppercase tracking-widest">Handloom</a>
-    <a href="#" class="text-sm font-semibold uppercase tracking-widest">GenZ</a>
+  <!-- Mobile Overlay Drawer -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
+  <div id="mobile-drawer" class="fixed top-0 left-0 h-full w-[300px] bg-flat-bg z-[70] transform -translate-x-full transition-transform duration-300 ease-out flex flex-col border-r border-flat-border">
+    <div class="flex justify-between items-center p-6 border-b border-flat-border">
+      <span class="font-serif font-bold tracking-widest text-[24px]">Hanket.</span>
+      <button onclick="toggleMobileMenu()" class="text-flat-text p-2 hover:text-flat-muted transition-colors">✕</button>
+    </div>
+    <nav class="flex flex-col flex-1 overflow-y-auto p-6 gap-6">
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Mens</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Womens</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Kids</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Accessories</a>
+    </nav>
   </div>
 </header>
 
@@ -205,21 +211,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- WELCOME TO HANKET -->
-<section class="py-24 bg-flat-bg border-t border-flat-border">
-  <div class="max-w-4xl mx-auto px-8 text-center flex flex-col items-center">
-    <div class="text-eyebrow text-flat-muted uppercase mb-6 font-semibold tracking-widest">Welcome to HANKET</div>
-    <h2 class="mb-6 text-flat-text leading-tight">Discover Fashion &amp; Style<br>On Our Online Worldwide Store</h2>
-    <p class="text-flat-muted text-[15px] mb-10 max-w-2xl leading-relaxed">
-      At HANKET, we believe fashion is more than clothing — it's a language. Explore our curated collections of premium apparel, artisan handloom, and contemporary designs crafted for the modern wardrobe. Quality you can feel. Style you can own.
-    </p>
-    <div class="flex gap-4 justify-center flex-wrap">
-      <button class="btn-flat">Shop New Arrivals</button>
-      <button class="btn-flat-outline">Explore Collections</button>
     </div>
   </div>
 </section>
@@ -296,29 +287,28 @@
   </div>
 </section>
 
-<!-- COLLECTION BANNERS -->
-<section class="grid grid-cols-1 lg:grid-cols-2 border-t border-flat-border">
-  <div class="relative h-[560px] group overflow-hidden cursor-pointer flex flex-col justify-end p-16">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-1.jpg')"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-    <div class="relative z-10 text-white">
-      <p class="text-eyebrow uppercase tracking-[0.2em] opacity-80 mb-2">New Season</p>
-      <h2 class="text-white mb-2">Main Collection</h2>
-      <p class="opacity-80 mb-6 text-sm">Timeless silhouettes for the modern wardrobe</p>
-      <button class="btn-flat-light text-flat-text">Shop Now</button>
-    </div>
-  </div>
-  <div class="relative h-[560px] group overflow-hidden cursor-pointer flex flex-col justify-end p-16">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-2.jpg')"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-    <div class="relative z-10 text-white">
-      <p class="text-eyebrow uppercase tracking-[0.2em] opacity-80 mb-2">Women's Edit</p>
-      <h2 class="text-white mb-2">Woman Collection</h2>
-      <p class="opacity-80 mb-6 text-sm">Refined elegance — from casual to couture</p>
-      <button class="btn-flat-light text-flat-text">Discover Now</button>
-    </div>
+<!-- IMAGE BANNER WITH VIDEO -->
+<section class="relative w-full h-[600px] border-t border-flat-border overflow-hidden group">
+  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-2.jpg')"></div>
+  <div class="absolute inset-0 bg-black/30"></div>
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
+    <p class="text-eyebrow text-white/80 uppercase font-bold mb-4 tracking-[0.2em]">Watch Our Story</p>
+    <h2 class="text-white mb-8 text-[3rem] leading-[1.1]">The New Collection</h2>
+    <button id="video-play-btn" onclick="openVideoModal()" class="w-[80px] h-[80px] border-2 border-white/60 flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-white hover:scale-110 group/play bg-white/10 backdrop-blur-sm">
+      <svg class="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <p class="text-white/60 text-[13px] mt-6 tracking-wide">Spring / Summer 2026</p>
   </div>
 </section>
+
+
+<!-- Video Modal Overlay -->
+<div id="video-modal" class="fixed inset-0 bg-black/90 z-[100] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+  <button onclick="closeVideoModal()" class="absolute top-8 right-8 text-white text-3xl hover:text-white/60 transition-colors z-[110] cursor-pointer">✕</button>
+  <div class="w-full max-w-4xl aspect-video">
+    <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
 
 <!-- BLOG -->
 <section class="py-24 bg-flat-bg border-t border-flat-border">
@@ -331,6 +321,36 @@
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-flat-border border border-flat-border" id="blog-grid">
       <!-- Generated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER SECTION -->
+<section class="relative py-24 px-8 border-t border-flat-border overflow-hidden group">
+  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-1.jpg')"></div>
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative max-w-2xl mx-auto text-center z-10 py-12">
+    <h2 class="mb-4 text-white text-[2.5rem] leading-tight">Hi there, sign up and connect to HANKET!</h2>
+    <p class="text-white/80 mb-8 text-[15px]">Be the first to learn about our latest trends and get exclusive offers.</p>
+    
+    <form class="flex flex-col sm:flex-row gap-0 bg-white">
+      <input type="email" placeholder="Your email address" class="flex-1 px-6 py-4 text-sm outline-none text-flat-text bg-transparent" required>
+      <button type="submit" class="btn-flat border-none">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- WELCOME TO HANKET -->
+<section class="py-24 bg-flat-bg border-t border-flat-border">
+  <div class="max-w-4xl mx-auto px-8 text-center flex flex-col items-center">
+    <div class="text-eyebrow text-flat-muted uppercase mb-6 font-semibold tracking-widest">Welcome to HANKET</div>
+    <h2 class="mb-6 text-flat-text leading-tight">Discover Fashion &amp; Style<br>On Our Online Worldwide Store</h2>
+    <p class="text-flat-muted text-[15px] mb-10 max-w-2xl leading-relaxed">
+      At HANKET, we believe fashion is more than clothing — it's a language. Explore our curated collections of premium apparel, artisan handloom, and contemporary designs crafted for the modern wardrobe. Quality you can feel. Style you can own.
+    </p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <button class="btn-flat">Shop New Arrivals</button>
+      <button class="btn-flat-outline">Explore Collections</button>
     </div>
   </div>
 </section>
@@ -362,6 +382,22 @@
           </div>
         `).join(''));
       </script>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- BRAND STRIP -->
+<section class="py-12 bg-white border-t border-flat-border overflow-hidden">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="flex items-center justify-between gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto no-scrollbar">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-witra.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-roscia.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-kalles.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-magdon.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-norda.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-engo.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
     </div>
   </div>
 </section>
@@ -503,10 +539,57 @@
 
   // 4. Sticky Header
   const header = document.getElementById('header');
+  const headerContainer = header.querySelector('.h-\\[90px\\]') || header.children[0];
+  
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) header.classList.add('shadow-sm');
-    else header.classList.remove('shadow-sm');
+    if (window.scrollY > 20) {
+      headerContainer.classList.remove('h-[90px]');
+      headerContainer.classList.add('h-[60px]');
+    } else {
+      headerContainer.classList.remove('h-[60px]');
+      headerContainer.classList.add('h-[90px]');
+    }
   });
+
+  // 5. Mobile Drawer Logic
+  const overlay = document.getElementById('mobile-overlay');
+  const drawer = document.getElementById('mobile-drawer');
+  
+  function toggleMobileMenu() {
+    const isHidden = overlay.classList.contains('hidden');
+    if (isHidden) {
+      overlay.classList.remove('hidden');
+      setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+      drawer.classList.remove('-translate-x-full');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.classList.add('opacity-0');
+      drawer.classList.add('-translate-x-full');
+      setTimeout(() => overlay.classList.add('hidden'), 300);
+      document.body.style.overflow = '';
+    }
+  }
+
+  // 6. Video Modal Logic
+  const videoModal = document.getElementById('video-modal');
+  const videoIframe = document.getElementById('video-iframe');
+  const videoUrl = "https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1"; // Example fashion video
+
+  function openVideoModal() {
+    videoModal.classList.remove('hidden');
+    setTimeout(() => videoModal.classList.remove('opacity-0'), 10);
+    videoIframe.src = videoUrl;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    videoModal.classList.add('opacity-0');
+    setTimeout(() => {
+      videoModal.classList.add('hidden');
+      videoIframe.src = ""; // Stop playing
+    }, 300);
+    document.body.style.overflow = '';
+  }
 </script>
 </body>
 </html>
