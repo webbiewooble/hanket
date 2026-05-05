@@ -6,23 +6,19 @@
 <title>HANKET — Premium Fashion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@500&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
-        screens: {
-          '3xl': '1600px',
-        },
         colors: {
           flat: {
             bg: '#FFFFFF',
             layer: '#FAFAFA',
-            text: '#333333',
+            text: '#212121',
             border: '#EEEEEE',
             muted: '#888888',
-            action: '#c2a265'
           }
         },
         fontFamily: {
@@ -46,52 +42,65 @@
     }
   }
 </script>
-<style type="text/tailwindcss">
-  @layer base {
-    body { @apply font-sans text-flat-text bg-flat-bg antialiased text-body; }
-    h1 { @apply font-serif text-h1 font-medium; }
-    h2 { @apply font-serif text-h2 font-medium; }
-    h3 { @apply font-serif text-h3 font-medium; }
-    h4 { @apply font-sans text-h4 font-semibold; }
-    h5 { @apply font-sans text-h5 font-semibold; }
-    h6 { @apply font-sans text-h6 font-bold uppercase; }
-    * { @apply rounded-none shadow-none; }
+<style>
+  body { font-family: 'Lato', sans-serif; color: #212121; background-color: #FFFFFF; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 0.875rem; line-height: 1.6; }
+  h1 { font-family: 'Lora', serif; font-size: 3.5rem; line-height: 1.1; letter-spacing: -0.02em; font-weight: 500; }
+  h2 { font-family: 'Lora', serif; font-size: 2.5rem; line-height: 1.2; letter-spacing: -0.01em; font-weight: 500; }
+  h3 { font-family: 'Lora', serif; font-size: 1.75rem; line-height: 1.3; font-weight: 500; }
+  h4 { font-family: 'Lato', sans-serif; font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
+  h5 { font-family: 'Lato', sans-serif; font-size: 1rem; line-height: 1.5; font-weight: 600; }
+  h6 { font-family: 'Lato', sans-serif; font-size: 0.875rem; line-height: 1.5; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase; }
+  * { border-radius: 0; box-shadow: none; }
+
+  .btn-flat {
+    display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2.5rem; background-color: #212121; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; border: 1px solid transparent; transition: all 0.3s ease-out; cursor: pointer;
   }
-  @layer components {
-    .btn-flat {
-      @apply inline-flex items-center justify-center px-10 py-4 bg-flat-text text-flat-bg font-sans text-[11px] font-bold uppercase tracking-[0.15em] border border-transparent transition-all duration-300 ease-out cursor-pointer;
-    }
-    .btn-flat:hover { @apply bg-flat-bg text-flat-text border-flat-text; }
-    .btn-flat-outline {
-      @apply inline-flex items-center justify-center px-10 py-4 bg-transparent text-flat-text font-sans text-[11px] font-bold uppercase tracking-[0.15em] border border-flat-text transition-all duration-300 ease-out cursor-pointer;
-    }
-    .btn-flat-outline:hover { @apply bg-flat-text text-flat-bg; }
-    .btn-flat-light {
-      @apply inline-flex items-center justify-center px-10 py-4 bg-flat-bg text-flat-text font-sans text-[11px] font-bold uppercase tracking-[0.15em] border border-transparent transition-all duration-300 ease-out cursor-pointer;
-    }
-    .btn-flat-light:hover { @apply bg-transparent text-flat-bg border-flat-bg; }
-    
-    .nav-link {
-      @apply text-[11px] 3xl:text-[13px] font-semibold uppercase tracking-[0.1em] text-flat-text py-2 relative transition-colors duration-300;
-    }
-    .nav-link::after {
-      content: '';
-      @apply absolute left-0 bottom-0 w-0 h-px bg-flat-text transition-all duration-300;
-    }
-    .nav-link:hover::after {
-      @apply w-full;
-    }
+  .btn-flat:hover { background-color: #FFFFFF; color: #212121; border-color: #212121; }
+
+  .btn-flat-outline {
+    display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2.5rem; background-color: transparent; color: #212121; font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; border: 1px solid #212121; transition: all 0.3s ease-out; cursor: pointer;
   }
+  .btn-flat-outline:hover { background-color: #212121; color: #FFFFFF; }
+
+  .btn-flat-light {
+    display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2.5rem; background-color: #FFFFFF; color: #212121; font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; border: 1px solid transparent; transition: all 0.3s ease-out; cursor: pointer;
+  }
+  .btn-flat-light:hover { background-color: transparent; color: #FFFFFF; border-color: #FFFFFF; }
+  
+  .nav-link {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #212121; padding-top: 0.5rem; padding-bottom: 0.5rem; position: relative; transition: color 0.3s;
+  }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background-color: #212121; transition: all 0.3s;
+  }
+  .nav-link:hover::after { width: 100%; }
 </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
+<!-- TOP BAR -->
+<div class="border-b border-flat-border bg-flat-bg text-[12px] text-flat-muted py-2 hidden md:block">
+  <div class="max-w-[1500px] mx-auto px-8 flex justify-between items-center">
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-flat-text transition-colors">About Us</a>
+      <a href="#" class="hover:text-flat-text transition-colors">Store Locator</a>
+      <a href="#" class="hover:text-flat-text transition-colors">Track Order</a>
+      <a href="#" class="hover:text-flat-text transition-colors">Shipping</a>
+    </div>
+    <div class="flex gap-6 items-center">
+      <span class="cursor-pointer hover:text-flat-text">USD ▾</span>
+      <span class="cursor-pointer hover:text-flat-text">English ▾</span>
+      <a href="#" class="hover:text-flat-text transition-colors">Need help? +1 (234) 567-890</a>
+    </div>
+  </div>
+</div>
+
 <!-- HEADER -->
 <header id="header" class="bg-flat-bg border-b border-flat-border sticky top-0 z-50 transition-all duration-300">
-  <div class="w-full max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-4 md:px-8 h-[90px] flex items-center justify-between">
-    <a href="#" class="font-serif font-bold text-[30px] 3xl:text-[36px] tracking-widest text-flat-text">Hanket<span class="text-flat-muted">.</span></a>
+  <div class="max-w-[1500px] mx-auto px-8 h-[90px] flex items-center justify-between">
+    <a href="#" class="font-serif font-bold text-[30px] tracking-widest text-flat-text">Hanket<span class="text-flat-muted">.</span></a>
     
-    <nav id="nav" class="hidden md:flex gap-4">
+    <nav id="nav" class="hidden md:flex gap-8">
       <a href="#" class="nav-link">Mens</a>
       <a href="#" class="nav-link">Womens</a>
       <a href="#" class="nav-link">Kids</a>
@@ -114,9 +123,9 @@
         <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
       </button>
       <button class="flex items-center text-flat-text hover:text-flat-muted transition-colors font-sans text-xs uppercase tracking-widest" aria-label="Cart">
-        <svg class="w-5 h-5 stroke-current fill-none stroke-2 mr-2" viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <svg class="w-5 h-5 stroke-current fill-none stroke-2 mr-2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="hidden lg:inline">Cart</span>
-        <span class="bg-flat-text text-flat-bg text-[10px] px-[6px] py-[2px] ml-1 flex items-center justify-center min-w-[20px]">2</span>
+        <span class="bg-flat-text text-flat-bg text-[10px] px-[6px] py-[2px] ml-1 flex items-center justify-center min-w-[20px]">0</span>
       </button>
       <button class="md:hidden text-flat-text" onclick="toggleMobileMenu()" aria-label="Menu">
         <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -131,33 +140,36 @@
       <button onclick="toggleMobileMenu()" class="text-flat-text p-2 hover:text-flat-muted transition-colors">✕</button>
     </div>
     <nav class="flex flex-col flex-1 overflow-y-auto p-6 gap-6">
-      <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Mens</a>
-      <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Womens</a>
-      <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Kids</a>
-      <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Accessories</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Mens</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Womens</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Kids</a>
+      <a href="#" class="text-xs font-bold uppercase tracking-widest text-flat-text hover:text-flat-muted transition-colors">Accessories</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO SLIDER -->
-<section class="relative w-full min-h-[60vh] md:min-h-[700px] lg:min-h-[800px] xl:h-[900px] bg-flat-layer overflow-hidden group" id="hero-slider">
-  <div id="slides-container" class="relative w-full h-full">
-    <!-- Slides generated by JS -->
+<section class="relative w-full h-[760px] bg-flat-layer overflow-hidden group">
+  <div class="absolute inset-0 transition-opacity duration-1000 ease-out opacity-100 z-10 slide">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-1.jpg')"></div>
+    <div class="absolute inset-0 flex items-center max-w-[1500px] mx-auto px-8 lg:px-20">
+      <div class="max-w-xl">
+        <div class="text-eyebrow text-flat-text uppercase font-bold mb-6 tracking-[0.2em]">New Collection 2026</div>
+        <h1 class="text-flat-text mb-6 leading-[1.05]">Oversize Striped T-shirt</h1>
+        <p class="text-flat-muted text-[15px] mb-10 max-w-md">Convallis interdum purus adipiscing dis parturient posuere ac a quam a eleifend montes curae tempor parturient curabitur euismod.</p>
+        <div class="flex flex-wrap gap-4">
+          <button class="btn-flat">Shop Collection</button>
+          <button class="btn-flat-outline">Explore More</button>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <!-- Navigation Arrows -->
-  <button class="absolute left-8 top-1/2 -translate-y-1/2 text-flat-text opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 z-30 cursor-pointer" onclick="prevSlide()" aria-label="Previous slide">
-    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 19l-7-7 7-7"></path></svg>
-  </button>
-  <button class="absolute right-8 top-1/2 -translate-y-1/2 text-flat-text opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 z-30 cursor-pointer" onclick="nextSlide()" aria-label="Next slide">
-    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"></path></svg>
-  </button>
 </section>
 
 <!-- 4 PROMO BANNERS -->
 <section class="py-8 bg-flat-bg">
-  <div class="w-full max-w-[1700px] 3xl:max-w-[1900px] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px bg-flat-border border border-flat-border">
       
       <div class="relative bg-flat-bg group overflow-hidden cursor-pointer aspect-[4/3]">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/03/baner-flat-fashion-500x375.jpg')"></div>
@@ -200,54 +212,50 @@
 </section>
 
 <!-- FEATURED CATEGORIES MASONRY -->
-<section class="py-16 md:py-24 bg-white border-t border-flat-border">
-  <div class="w-full max-w-[1700px] 3xl:max-w-[1900px] mx-auto">
-    <div class="text-center mb-10 md:mb-16 max-w-xl 3xl:max-w-2xl mx-auto">
-      <div class="text-[12px] 3xl:text-[14px] text-flat-muted uppercase mb-4 tracking-[0.2em]">WELCOME TO HANKET</div>
-      <h2 class="mb-4 text-flat-text text-[32px] md:text-[40px] 3xl:text-[48px] leading-tight">Featured Categories</h2>
-      <p class="text-flat-muted text-[15px] 3xl:text-[17px]">Nec sem consequat mi gravida augue augue suspendisse condimentum condimentum vestibulum augue mi gravida ugue.</p>
+<section class="py-24 bg-flat-layer border-t border-flat-border">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="text-center mb-16 max-w-xl mx-auto">
+      <div class="text-eyebrow text-flat-muted uppercase mb-4 tracking-widest">Welcome to HANKET</div>
+      <h2 class="mb-4 text-flat-text">Featured Categories</h2>
+      <p class="text-flat-muted">Explore our minimalist approach to everyday fashion across all categories.</p>
     </div>
 
-    <!-- Masonry Grid with gaps and background -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 auto-rows-[250px] lg:auto-rows-[250px]">
+    <!-- Masonry Grid with 1px borders -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[240px] gap-px bg-flat-border border border-flat-border">
       
-      <!-- GenZ (large) -->
-      <div class="lg:col-span-2 lg:row-span-3 lg:col-start-1 lg:row-start-1 relative bg-[#f4f4f4] group overflow-hidden cursor-pointer">
-        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://raw.githubusercontent.com/webbiewooble/hanket/main/WhatsApp%20Image%202026-04-29%20at%204.49.16%20PM%20(1).jpeg')"></div>
-        <div class="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end text-left z-10">
-          <h3 class="text-flat-text text-[20px] font-sans font-medium tracking-[0.05em] uppercase">GenZ</h3>
+      <!-- Mens (large) -->
+      <div class="col-span-1 md:col-span-2 row-span-2 relative bg-flat-bg group overflow-hidden cursor-pointer">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-kids-4.jpg')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-end p-8 text-white">
+          <h3 class="mb-1 text-[22px]">Mens</h3>
+          <p class="text-xs tracking-widest uppercase opacity-80">120 Products</p>
         </div>
       </div>
 
-      <!-- Kids -->
-      <div class="lg:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-1 relative bg-[#f4f4f4] group overflow-hidden cursor-pointer">
+      <!-- Womens (tall) -->
+      <div class="col-span-1 row-span-2 relative bg-flat-bg group overflow-hidden cursor-pointer">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-woman.jpg')"></div>
-        <div class="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end text-left z-10">
-          <h3 class="text-flat-text text-[20px] font-sans font-medium tracking-[0.05em] uppercase">Kids</h3>
-        </div>
-      </div>
-
-      <!-- Handloom -->
-      <div class="lg:col-span-1 lg:row-span-1 lg:col-start-3 lg:row-start-3 relative bg-[#f4f4f4] group overflow-hidden cursor-pointer">
-        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-accesories-9.jpg')"></div>
-        <div class="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end text-left z-10">
-          <h3 class="text-flat-text text-[20px] font-sans font-medium tracking-[0.05em] uppercase">Handloom</h3>
+        <div class="absolute inset-0 flex flex-col justify-start p-8 text-flat-text">
+          <h3 class="mb-1 text-[22px]">Womens</h3>
+          <p class="text-xs tracking-widest uppercase text-flat-muted">180 Products</p>
         </div>
       </div>
 
       <!-- Accessories -->
-      <div class="lg:col-span-1 lg:row-span-1 lg:col-start-4 lg:row-start-1 relative bg-[#f4f4f4] group overflow-hidden cursor-pointer">
+      <div class="col-span-1 row-span-1 relative bg-flat-bg group overflow-hidden cursor-pointer">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-glass.jpg')"></div>
-        <div class="absolute inset-y-0 left-0 p-8 flex flex-col justify-center text-left z-10">
-          <h3 class="text-flat-text text-[20px] font-sans font-medium tracking-[0.05em] uppercase">Accessories</h3>
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-flat-text text-center">
+          <h3 class="mb-1 text-[22px]">Accessories</h3>
+          <p class="text-xs tracking-widest uppercase text-flat-muted">140 Products</p>
         </div>
       </div>
 
-      <!-- Customized -->
-      <div class="lg:col-span-1 lg:row-span-2 lg:col-start-4 lg:row-start-2 relative bg-[#f4f4f4] group overflow-hidden cursor-pointer">
-        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-man-4.jpg')"></div>
-        <div class="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end text-left z-10">
-          <h3 class="text-flat-text text-[20px] font-sans font-medium tracking-[0.05em] uppercase">Customized</h3>
+      <!-- Beauty -->
+      <div class="col-span-1 row-span-1 relative bg-flat-bg group overflow-hidden cursor-pointer">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-accesories-9.jpg')"></div>
+        <div class="absolute inset-0 flex flex-col justify-start p-8 text-flat-text">
+          <h3 class="mb-1 text-[22px]">Beauty</h3>
+          <p class="text-xs tracking-widest uppercase text-flat-muted">72 Products</p>
         </div>
       </div>
 
@@ -256,57 +264,36 @@
 </section>
 
 <!-- FEATURED PRODUCTS (TABS) -->
-<section class="py-16 md:py-24 bg-white border-t border-flat-border">
-  <div class="w-full max-w-[1700px] 3xl:max-w-[1900px] mx-auto">
-    <div class="text-center mb-12 max-w-xl 3xl:max-w-2xl mx-auto">
-      <div class="text-[12px] 3xl:text-[14px] text-flat-muted uppercase mb-4 tracking-[0.2em]">WELCOME TO HANKET</div>
-      <h2 class="mb-4 text-flat-text text-[32px] md:text-[40px] 3xl:text-[48px] leading-tight">Featured Products</h2>
-      <p class="text-flat-muted text-[15px] 3xl:text-[17px]">Nec sem consequat mi gravida augue augue suspendisse condimentum condimentum vestibulum augue mi gravida ugue.</p>
+<section class="py-24 bg-flat-bg border-t border-flat-border">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="text-center mb-12 max-w-xl mx-auto">
+      <h2 class="mb-4 text-flat-text">Featured Products</h2>
+      <p class="text-flat-muted">Discover timeless silhouettes for the modern wardrobe.</p>
     </div>
 
     <!-- Tabs -->
     <div class="flex justify-center gap-8 border-b border-flat-border mb-12" id="tabs">
-      <div class="tab-link active cursor-pointer pb-4 text-[13px] font-bold uppercase tracking-[0.1em] text-flat-text relative border-b-2 border-flat-text transition-all" data-target="main-collection">MAN COLLECTION</div>
-      <div class="tab-link cursor-pointer pb-4 text-[13px] font-bold uppercase tracking-[0.1em] text-flat-muted relative border-b-2 border-transparent hover:text-flat-text transition-all" data-target="woman-collection">WOMAN COLLECTION</div>
+      <div class="tab-link active cursor-pointer pb-4 text-xs font-bold uppercase tracking-widest text-flat-text relative border-b-2 border-flat-text transition-all" data-target="main-collection">Main Collection</div>
+      <div class="tab-link cursor-pointer pb-4 text-xs font-bold uppercase tracking-widest text-flat-muted relative border-b-2 border-transparent hover:text-flat-text transition-all" data-target="woman-collection">Woman Collection</div>
     </div>
 
     <!-- Product Grids (Populated by JS) -->
-    <div id="main-collection" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0"></div>
-    <div id="woman-collection" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0"></div>
+    <div id="main-collection" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-flat-border border border-flat-border"></div>
+    <div id="woman-collection" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-flat-border border border-flat-border"></div>
   </div>
 </section>
 
-<!-- FULL WIDTH BANNER WITH VIDEO AND TEXT -->
-<section class="relative w-full min-h-[60vh] md:min-h-[600px] border-t border-flat-border flex items-center bg-cover bg-center" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-2.jpg')">
-  <!-- Overlay to improve text readability -->
+<!-- IMAGE BANNER WITH VIDEO -->
+<section class="relative w-full h-[600px] border-t border-flat-border overflow-hidden group">
+  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-2.jpg')"></div>
   <div class="absolute inset-0 bg-black/30"></div>
-  
-  <div class="w-full max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-center py-16 md:py-20">
-    <!-- Left Side: Video Placeholder -->
-    <div class="w-full md:w-1/2 flex items-center justify-center mb-16 md:mb-0">
-      <div class="relative w-[300px] md:w-[450px] 3xl:w-[550px] aspect-[16/9] cursor-pointer group transition-all duration-500 hover:scale-105" onclick="openVideoModal()">
-        <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover shadow-2xl" alt="Video thumbnail">
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-[70px] h-[70px] border border-white/80 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/20">
-            <svg class="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Right Side: Text -->
-    <div class="w-full md:w-1/2 flex flex-col justify-center items-start text-left md:pl-10">
-      <div class="text-[12px] 3xl:text-[14px] uppercase tracking-[0.2em] mb-4 text-white font-semibold font-sans">PORTTITOR ADIPISCING PARTURIENT</div>
-      <h2 class="text-white text-[32px] md:text-[40px] lg:text-[42px] 3xl:text-[52px] leading-[1.1] mb-6 font-serif max-w-sm 3xl:max-w-lg">Enjoy the best quality and features made by HANKET.</h2>
-      <p class="text-[15px] 3xl:text-[17px] leading-relaxed mb-8 text-white/90 max-w-[450px] 3xl:max-w-[550px] font-sans">
-        Etiam semper nibh orci, ac tincidunt mi consectetur a. In quis tortor ex. Morbi cursus sed neque quis dictum. Duis bibendum ullamcorper pharetra. Vivamus quis turpis et enim cursus neque quis dictum volutpat convallis.
-      </p>
-      <div class="flex gap-4 flex-wrap mt-2">
-        <button class="bg-white text-flat-text text-[11px] font-bold uppercase tracking-[0.15em] px-9 py-4 hover:bg-black hover:text-white transition-colors cursor-pointer border-none shadow-none">Shop Now</button>
-        <button class="bg-transparent border border-white/40 text-white text-[11px] font-bold uppercase tracking-[0.15em] px-9 py-4 hover:border-white hover:bg-white/10 transition-colors cursor-pointer">View More</button>
-      </div>
-    </div>
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
+    <p class="text-eyebrow text-white/80 uppercase font-bold mb-4 tracking-[0.2em]">Watch Our Story</p>
+    <h2 class="text-white mb-8 text-[3rem] leading-[1.1]">The New Collection</h2>
+    <button id="video-play-btn" onclick="openVideoModal()" class="w-[80px] h-[80px] border-2 border-white/60 flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-white hover:scale-110 group/play bg-white/10 backdrop-blur-sm">
+      <svg class="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <p class="text-white/60 text-[13px] mt-6 tracking-wide">Spring / Summer 2026</p>
   </div>
 </section>
 
@@ -320,275 +307,172 @@
 </div>
 
 <!-- BLOG -->
-<section class="py-16 md:py-24 bg-flat-bg border-t border-flat-border">
-  <div class="w-full max-w-[1700px] 3xl:max-w-[1900px] mx-auto px-2 md:px-4">
-    <div class="text-center mb-12 md:mb-16 max-w-xl 3xl:max-w-2xl mx-auto">
-      <div class="text-eyebrow 3xl:text-[14px] text-flat-muted uppercase mb-4 tracking-widest">Read Our Journal</div>
-      <h2 class="mb-4 text-flat-text 3xl:text-[48px]">Our Latest Posts</h2>
-      <p class="text-flat-muted 3xl:text-[17px]">Style guides, lookbooks, and fashion insights.</p>
+<section class="py-24 bg-flat-bg border-t border-flat-border">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="text-center mb-16 max-w-xl mx-auto">
+      <div class="text-eyebrow text-flat-muted uppercase mb-4 tracking-widest">Read Our Journal</div>
+      <h2 class="mb-4 text-flat-text">Our Latest Posts</h2>
+      <p class="text-flat-muted">Style guides, lookbooks, and fashion insights.</p>
     </div>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="blog-grid">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-flat-border border border-flat-border" id="blog-grid">
       <!-- Generated by JS -->
     </div>
   </div>
 </section>
 
 <!-- NEWSLETTER SECTION -->
-<section class="relative py-16 md:py-24 px-4 md:px-8 border-t border-flat-border overflow-hidden group">
+<section class="relative py-24 px-8 border-t border-flat-border overflow-hidden group">
   <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] group-hover:scale-105" style="background-image:url('https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-1.jpg')"></div>
   <div class="absolute inset-0 bg-black/50"></div>
-  <div class="relative max-w-2xl 3xl:max-w-4xl mx-auto text-center z-10 py-8 md:py-12">
-    <h2 class="mb-4 text-white text-3xl md:text-[2.5rem] 3xl:text-[3.5rem] leading-tight">Hi there, sign up and connect to HANKET!</h2>
-    <p class="text-white/80 mb-8 text-[15px] 3xl:text-[18px]">Be the first to learn about our latest trends and get exclusive offers.</p>
+  <div class="relative max-w-2xl mx-auto text-center z-10 py-12">
+    <h2 class="mb-4 text-white text-[2.5rem] leading-tight">Hi there, sign up and connect to HANKET!</h2>
+    <p class="text-white/80 mb-8 text-[15px]">Be the first to learn about our latest trends and get exclusive offers.</p>
     
-    <form class="flex flex-col sm:flex-row gap-0 bg-transparent justify-center items-center">
-      <button type="submit" class="bg-flat-action text-white text-[12px] font-bold uppercase tracking-[0.15em] px-10 py-4 hover:bg-black hover:text-white transition-colors cursor-pointer border-none shadow-none">Newsletter Subscribe</button>
+    <form class="flex flex-col sm:flex-row gap-0 bg-white">
+      <input type="email" placeholder="Your email address" class="flex-1 px-6 py-4 text-sm outline-none text-flat-text bg-transparent" required>
+      <button type="submit" class="btn-flat border-none">Subscribe</button>
     </form>
   </div>
 </section>
 
-<!-- DISCOVER FASHION SECTION -->
-<section class="py-16 md:py-24 bg-flat-bg border-t border-flat-border">
-  <div class="w-full max-w-4xl 3xl:max-w-[1200px] mx-auto px-4 md:px-8 text-center flex flex-col items-center">
-    <div class="text-[12px] 3xl:text-[14px] text-flat-muted uppercase mb-4 tracking-[0.2em]">CONDIMENTUM QUIS NASCETUR</div>
-    <h2 class="mb-6 text-flat-text leading-tight text-[28px] md:text-[36px] 3xl:text-[48px]">Discover fashion and style on our<br>online worldwide store.</h2>
-    <p class="text-flat-muted text-[15px] 3xl:text-[18px] mb-10 max-w-3xl 3xl:max-w-4xl leading-relaxed">
-      Etiam semper nibh orci, ac tincidunt mi consectetur a. In quis tortor ex. Morbi cursus sed neque quis dictum. Duis bibendum ullamcorper pharetra. Vivamus quis turpis et enim cursus neque quis.
+<!-- WELCOME TO HANKET -->
+<section class="py-24 bg-flat-bg border-t border-flat-border">
+  <div class="max-w-4xl mx-auto px-8 text-center flex flex-col items-center">
+    <div class="text-eyebrow text-flat-muted uppercase mb-6 font-semibold tracking-widest">Welcome to HANKET</div>
+    <h2 class="mb-6 text-flat-text leading-tight">Discover Fashion &amp; Style<br>On Our Online Worldwide Store</h2>
+    <p class="text-flat-muted text-[15px] mb-10 max-w-2xl leading-relaxed">
+      At HANKET, we believe fashion is more than clothing — it's a language. Explore our curated collections of premium apparel, artisan handloom, and contemporary designs crafted for the modern wardrobe. Quality you can feel. Style you can own.
     </p>
     <div class="flex gap-4 justify-center flex-wrap">
-      <button class="bg-flat-action text-white text-[11px] font-bold uppercase tracking-[0.15em] px-9 py-4 hover:bg-black transition-colors cursor-pointer border-none shadow-none">Shop Now</button>
-      <button class="bg-transparent border border-[#e5e5e5] text-flat-text text-[11px] font-bold uppercase tracking-[0.15em] px-9 py-4 hover:border-[#d5d5d5] hover:bg-[#f9f9f9] transition-colors cursor-pointer">View More</button>
+      <button class="btn-flat">Shop New Arrivals</button>
+      <button class="btn-flat-outline">Explore Collections</button>
     </div>
   </div>
 </section>
 
 <!-- INSTAGRAM SECTION -->
-<section class="relative w-full border-t border-flat-border overflow-hidden">
-  <!-- Grid -->
-  <div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6" id="insta-grid">
-    <!-- Generated by JS -->
+<section class="py-24 bg-flat-layer border-t border-flat-border overflow-hidden">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="text-center mb-12">
+      <div class="text-eyebrow text-flat-muted uppercase mb-4 tracking-widest">Follow Us on Instagram</div>
+      <h2 class="mb-4 text-flat-text">@hanket.official</h2>
+      <p class="text-flat-muted max-w-lg mx-auto">Stay inspired — follow us for daily style drops, behind-the-scenes, and new arrivals.</p>
+    </div>
   </div>
-  
-  <!-- Center Box Overlay -->
-  <div class="absolute inset-0 flex items-center justify-center pointer-events-none px-4 z-10">
-    <div class="bg-white p-10 md:p-14 text-center max-w-[420px] pointer-events-auto flex flex-col justify-center items-center">
-      <h4 class="text-flat-text font-bold uppercase tracking-[0.05em] text-[18px] mb-1 font-sans">INSTAGRAM</h4>
-      <p class="text-[#a8a8a8] text-[13px] tracking-widest font-sans mb-4">@WOOD_FASHION</p>
-      <p class="text-flat-muted text-[15px] leading-relaxed font-sans italic">
-        Porttitor adipiscing a velmus lacinia parturient adipiscing lobortis vestibulum lacinia class.
-      </p>
+  <div class="w-full flex justify-center">
+    <!-- Grid using fixed columns to stretch fully -->
+    <div class="w-full max-w-[1920px] grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-px bg-flat-border border-y border-flat-border">
+      <!-- Generating 8 Instagram items for the 8-column wide look or 6-column depending on screen -->
+      <script>
+        const instaImages = [
+          'fashion-product-3.jpg', 'fashion-product-5.jpg', 'fashion-product-6.jpg', 'fashion-product-10.jpg',
+          'fashion-product-11.jpg', 'fashion-product-12.jpg', 'fashion-product-3.jpg', 'fashion-product-5.jpg'
+        ];
+        document.write(instaImages.map(img => `
+          <div class="aspect-square relative bg-flat-bg overflow-hidden group cursor-pointer">
+            <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/04/${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Instagram post" loading="lazy">
+            <div class="absolute inset-0 bg-flat-bg/0 group-hover:bg-flat-bg/30 transition-colors duration-300 flex items-center justify-center">
+              <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="white"/></svg>
+            </div>
+          </div>
+        `).join(''));
+      </script>
     </div>
   </div>
 </section>
 
 
 
-
-<!-- FOOTER -->
-<footer class="bg-white text-[#777] border-t border-flat-border font-sans">
-  <div class="w-full max-w-[1700px] 3xl:max-w-[1900px] mx-auto px-4 md:px-8 py-16 md:py-20 text-[14px] 3xl:text-[16px]">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      <!-- Col 1: Logo & Description -->
-      <div class="lg:pr-4">
-        <a href="#" class="flex items-center gap-2 text-[#2d2a2a] mb-6">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M8 12l4-8 4 8"/></svg>
-          <span class="font-bold text-[28px] tracking-tight">Hanket<span class="text-flat-muted">.</span></span>
-        </a>
-        <p class="text-[14px] leading-[1.8] mb-6">Condimentum adipiscing vel neque dis nam parturient orci at scelerisque neque dis nam parturient.</p>
-      </div>
-
-      <!-- Col 2: Our Stores & Contact -->
-      <div>
-        <h4 class="text-[#333] text-[15px] font-semibold mb-6 tracking-wide">OUR STORES & CONTACT</h4>
-        <ul class="space-y-3 text-[14px] mb-6">
-          <li><a href="#" class="hover:text-[#333] transition-colors">New York</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">London SF</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Edinburgh</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Los Angeles</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Chicago</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Las Vegas</a></li>
-        </ul>
-        <ul class="space-y-3 text-[14px]">
-          <li class="flex items-start gap-3">
-            <svg class="w-4 h-4 mt-1 text-[#a8a8a8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-            <span>451 Wall Street, UK, London</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-4 h-4 mt-1 text-[#a8a8a8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-            <span>Phone: (064) 332-1233</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-4 h-4 mt-1 text-[#a8a8a8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span>Fax: (099) 453-1357</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Useful Links -->
-      <div>
-        <h4 class="text-[#333] text-[15px] font-semibold mb-6 tracking-wide">USEFUL LINKS</h4>
-        <ul class="space-y-3 text-[14px]">
-          <li><a href="#" class="hover:text-[#333] transition-colors">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Returns</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Terms &amp; Conditions</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Contact Us</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Latest News</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Our Sitemap</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Footer Menu -->
-      <div>
-        <h4 class="text-[#333] text-[15px] font-semibold mb-6 tracking-wide">FOOTER MENU</h4>
-        <ul class="space-y-3 text-[14px]">
-          <li><a href="#" class="hover:text-[#333] transition-colors">Instagram profile</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">New Collection</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Woman Dress</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Contact Us</a></li>
-          <li><a href="#" class="hover:text-[#333] transition-colors">Latest News</a></li>
-          <li><a href="#" class="italic hover:text-[#333] transition-colors">Purchase Theme</a></li>
-        </ul>
-      </div>
-
+<!-- BRAND STRIP -->
+<section class="py-12 bg-white border-t border-flat-border overflow-hidden">
+  <div class="max-w-[1500px] mx-auto px-8">
+    <div class="flex items-center justify-between gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto no-scrollbar">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-witra.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-roscia.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-kalles.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-magdon.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-norda.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
+      <img src="https://woodmart.xtemos.com/wp-content/uploads/2017/01/brand-engo.png" class="h-12 w-auto object-contain shrink-0 cursor-pointer hover:opacity-100 transition-opacity" alt="Brand">
     </div>
   </div>
-  
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#1a1a1a] text-[#a8a8a8] border-t border-flat-text">
+  <div class="max-w-[1500px] mx-auto px-8 pt-24 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div>
+        <a href="#" class="font-serif font-bold text-[30px] tracking-widest text-white inline-block mb-6">Hanket<span class="text-flat-muted">.</span></a>
+        <p class="text-[13px] leading-relaxed mb-6">HANKET is a premium fashion house blending heritage craftsmanship with contemporary design. Discover pieces made to last, made to love.</p>
+        <div class="flex gap-4">
+          <a href="#" class="w-10 h-10 border border-[#333] flex items-center justify-center hover:bg-white hover:text-black transition-colors" aria-label="Instagram"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" class="w-10 h-10 border border-[#333] flex items-center justify-center hover:bg-white hover:text-black transition-colors" aria-label="Twitter"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-6">Categories</h4>
+        <ul class="space-y-3 text-[13px]">
+          <li><a href="#" class="hover:text-white transition-colors">Mens</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Womens</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Kids</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Accessories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-6">Quick Links</h4>
+        <ul class="space-y-3 text-[13px]">
+          <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Shipping &amp; Returns</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-6">Get in Touch</h4>
+        <ul class="space-y-3 text-[13px]">
+          <li>123 Fashion Avenue<br>New York, NY 10001</li>
+          <li><a href="mailto:hello@hanket.com" class="hover:text-white transition-colors">hello@hanket.com</a></li>
+          <li><a href="tel:+1234567890" class="hover:text-white transition-colors">+1 (234) 567-890</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-[#333] pt-6 flex flex-col md:flex-row justify-between items-center text-[11px] uppercase tracking-widest">
+      <div class="mb-4 md:mb-0">© 2026 HANKET. All rights reserved.</div>
+      <div class="flex gap-4">
+        <span>VISA</span><span>MC</span><span>AMEX</span><span>PP</span>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
   // --- Tailwind Data Population Script ---
   
-  // 0. Hero Slider
-  const heroSlides = [
-    {
-      img: 'https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-1.jpg',
-      eyebrow: 'New Collection 2026',
-      title: 'Oversize Striped T-shirt',
-      desc: 'Convallis interdum purus adipiscing dis parturient posuere ac a quam a eleifend montes curae tempor parturient curabitur euismod.'
-    },
-    {
-      img: 'https://raw.githubusercontent.com/webbiewooble/hanket/main/WhatsApp%20Image%202026-04-29%20at%204.49.16%20PM.jpeg',
-      eyebrow: '',
-      title: '',
-      desc: ''
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop',
-      eyebrow: '',
-      title: '',
-      desc: ''
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop',
-      eyebrow: '',
-      title: '',
-      desc: ''
-    }
-  ];
-
-  const slidesContainer = document.getElementById('slides-container');
-  
-  if (slidesContainer) {
-    slidesContainer.innerHTML = heroSlides.map((s, i) => `
-      <div class="absolute inset-0 transition-opacity duration-1000 ease-out z-10 slide-item ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}">
-        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] ease-out ${i === 0 ? 'scale-105' : 'scale-100'}" style="background-image:url('${s.img}')"></div>
-        <div class="absolute inset-0 bg-white/30 sm:bg-transparent"></div>
-        <div class="absolute inset-0 flex items-center ${i === 0 ? '' : 'justify-center'} w-full max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-4 md:px-8 lg:px-20">
-          <div class="max-w-xl 3xl:max-w-2xl relative z-20 ${i === 0 ? '' : 'text-center'}">
-            ${s.eyebrow ? `<div class="text-[12px] 3xl:text-[14px] text-flat-text uppercase font-semibold mb-4 tracking-[0.2em] transform transition-all duration-700 ${i === 0 ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} slide-content-${i}">${s.eyebrow}</div>` : ''}
-            ${s.title ? `<h1 class="text-flat-text mb-6 text-[40px] sm:text-[48px] md:text-[64px] lg:text-[80px] 3xl:text-[100px] font-light leading-[1.1] tracking-[-0.02em] transform transition-all duration-700 delay-100 ${i === 0 ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} slide-content-${i}">${s.title}</h1>` : ''}
-            ${s.desc ? `<p class="text-flat-text sm:text-flat-muted text-[16px] 3xl:text-[18px] mb-10 max-w-[420px] 3xl:max-w-[500px] ${i === 0 ? '' : 'mx-auto'} leading-relaxed transform transition-all duration-700 delay-200 ${i === 0 ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} slide-content-${i}">${s.desc}</p>` : ''}
-            ${(i === 0) ? `
-            <div class="flex flex-wrap ${i === 0 ? '' : 'justify-center'} gap-4 transform transition-all duration-700 delay-300 ${i === 0 ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} slide-content-${i}">
-              <button class="bg-flat-text text-white text-[11px] font-bold uppercase tracking-[0.15em] px-9 py-4 hover:bg-black/80 transition-colors">Shop Collection</button>
-              <button class="bg-transparent border border-flat-text text-flat-text text-[11px] font-bold uppercase tracking-[0.15em] px-9 py-4 hover:bg-flat-layer transition-colors">Explore More</button>
-            </div>
-            ` : ''}
-          </div>
-        </div>
-      </div>
-    `).join('');
-
-    let currentSlide = 0;
-    let slideInterval;
-    const slideItems = document.querySelectorAll('.slide-item');
-
-    window.goToSlide = function(index) {
-      if (index === currentSlide) return;
-      
-      // Fade out current
-      slideItems[currentSlide].classList.remove('opacity-100');
-      slideItems[currentSlide].classList.add('opacity-0', 'pointer-events-none');
-      slideItems[currentSlide].firstElementChild.classList.remove('scale-105');
-      slideItems[currentSlide].firstElementChild.classList.add('scale-100');
-      
-
-      
-      document.querySelectorAll('.slide-content-' + currentSlide).forEach(el => {
-        el.classList.remove('translate-y-0', 'opacity-100');
-        el.classList.add('translate-y-8', 'opacity-0');
-      });
-
-      // Update index
-      currentSlide = index;
-      
-      // Fade in new
-      slideItems[currentSlide].classList.remove('opacity-0', 'pointer-events-none');
-      slideItems[currentSlide].classList.add('opacity-100');
-      slideItems[currentSlide].firstElementChild.classList.remove('scale-100');
-      slideItems[currentSlide].firstElementChild.classList.add('scale-105');
-      
-
-      
-      setTimeout(() => {
-        document.querySelectorAll('.slide-content-' + currentSlide).forEach(el => {
-          el.classList.remove('translate-y-8', 'opacity-0');
-          el.classList.add('translate-y-0', 'opacity-100');
-        });
-      }, 50);
-      
-      // Reset interval
-      clearInterval(slideInterval);
-      startSlider();
-    }
-
-    window.nextSlide = function() {
-      goToSlide((currentSlide + 1) % heroSlides.length);
-    }
-
-    window.prevSlide = function() {
-      goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
-    }
-
-    function startSlider() {
-      slideInterval = setInterval(() => {
-        nextSlide();
-      }, 15000);
-    }
-    
-    startSlider();
-  }
-  
   // 1. Product Cards Template
   function pCard(p) {
     return `
-      <div class="group relative bg-white flex flex-col text-center transition-colors">
-        <div class="aspect-[1/1.2] w-full mb-4 overflow-hidden bg-[#f4f4f4] relative">
+      <div class="group relative bg-flat-bg flex flex-col text-center p-6 transition-colors hover:bg-flat-layer">
+        <div class="aspect-[430/491] w-full mb-6 overflow-hidden bg-flat-layer relative">
           ${p.badges ? `<div class="absolute top-3 left-3 flex flex-col gap-2 z-10">
-            ${p.badges.map(b => `<span class="bg-flat-text text-flat-bg text-[10px] font-bold uppercase tracking-widest px-3 py-1">${b}</span>`).join('')}
+            ${p.badges.map(b => `<span class="bg-flat-text text-flat-bg text-[9px] font-bold uppercase tracking-widest px-2 py-1">${b}</span>`).join('')}
           </div>` : ''}
           <img src="${p.img1}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0" loading="lazy">
-          <img src="${p.img2}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" loading="lazy">
+          <img src="${p.img2}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105" loading="lazy">
+          
+          <div class="absolute inset-x-0 bottom-0 p-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-flat-bg border-t border-flat-border flex z-20">
+            <button class="flex-1 py-4 text-[10px] font-bold uppercase tracking-widest text-flat-text hover:bg-flat-text hover:text-flat-bg transition-colors">Add to Cart</button>
+            <button class="w-12 border-l border-flat-border flex items-center justify-center hover:bg-flat-text hover:text-flat-bg transition-colors" aria-label="Wishlist">
+              <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+            </button>
+          </div>
         </div>
         
-        <p class="text-[11px] font-bold text-flat-text font-sans uppercase tracking-[0.1em] mb-1">XS M L XL</p>
-        <h4 class="mb-1 text-flat-text font-serif text-[15px] font-medium transition-colors group-hover:text-flat-muted">${p.title}</h4>
-        <p class="text-[12px] font-sans text-[#a8a8a8] mb-1">${p.meta}</p>
+        <p class="text-[10px] font-semibold text-flat-muted uppercase tracking-[0.15em] mb-2">${p.meta}</p>
+        <h4 class="mb-2 text-flat-text transition-colors group-hover:text-flat-muted text-[15px]">${p.title}</h4>
         <div class="flex justify-center items-center gap-2">
-          ${p.oldPrice ? `<span class="line-through text-[#a8a8a8] text-[14px]">${p.oldPrice}</span>` : ''}
-          <span class="font-sans text-[#c2a265] text-[14px]">${p.price}</span>
+          ${p.oldPrice ? `<span class="line-through text-flat-muted text-xs">${p.oldPrice}</span>` : ''}
+          <span class="font-bold text-flat-text text-sm">${p.price}</span>
         </div>
       </div>
     `;
@@ -596,14 +480,14 @@
 
   // Sample Data
   const main = [
-    {title:'Wkinny Fit Suit',meta:'Fashion Flat',price:'$599.00',badges:['New'], img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3-2-430x491.jpg'},
-    {title:'Wini Dress Top Layer',meta:'Fashion Flat',price:'$199.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5-2-430x491.jpg'},
-    {title:'Wtar blusen Top',meta:'Fashion Flat',price:'$99.00',badges:['Sale'],oldPrice:'$130.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6-2.jpg'},
-    {title:'Fit Suit In Rust',meta:'Fashion Flat',price:'$499.00',badges:['New'], img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-10.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-10-2.jpg'},
-    {title:'Skinny Shirt In White',meta:'Fashion Flat',price:'$499.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11-2.jpg'},
-    {title:'Wlouse with Ruffle',meta:'Fashion Flat',price:'$120.00',badges:['Sale'],oldPrice:'$160.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-12.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-12-2-430x491.jpg'},
-    {title:'Woral Print Black',meta:'Fashion Flat',price:'$99.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6.jpg'},
-    {title:'Skinny Shirt With Lace',meta:'Fashion Flat',price:'$199.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3.jpg'}
+    {title:'Mens Oxford Shirt',meta:'Casual Top',price:'$59.00',badges:['New'], img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3-2-430x491.jpg'},
+    {title:'Off-Shoulder Blouse',meta:'Casual Top',price:'$129.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5-2-430x491.jpg'},
+    {title:'Olive Wrap Top',meta:'Casual Top',price:'$99.00',badges:['Sale'],oldPrice:'$130.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6-2.jpg'},
+    {title:'Cotton Blazer',meta:'Casual Top',price:'$249.00',badges:['New'], img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-10.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-10-2.jpg'},
+    {title:'Classic White Shirt',meta:'Casual Top',price:'$48.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11-2.jpg'},
+    {title:'Floral Crop Top',meta:'Casual Top',price:'$120.00',badges:['Sale'],oldPrice:'$160.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-12.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-12-2-430x491.jpg'},
+    {title:'Boho Print Vest',meta:'Casual Top',price:'$92.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6.jpg'},
+    {title:'Beige Linen Shirt',meta:'Casual Top',price:'$135.00', img1:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11.jpg', img2:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3.jpg'}
   ];
   const woman = [...main].reverse();
 
@@ -612,24 +496,22 @@
 
   // 2. Blog Template
   const blogs = [
-    {date:'23',month:'Apr',cat:'Style',title:'The Art of Effortless Dressing',img:'https://woodmart.xtemos.com/wp-content/uploads/2016/07/blog-11.jpg'},
-    {date:'15',month:'Apr',cat:'Trends',title:'10 Ways to Style a Classic Blazer',img:'https://woodmart.xtemos.com/wp-content/uploads/2016/07/blog-12.jpg'},
-    {date:'08',month:'Apr',cat:'Craft',title:'Behind the Weave: Our Story',img:'https://woodmart.xtemos.com/wp-content/uploads/2016/07/blog-13.jpg'},
-    {date:'01',month:'Apr',cat:'Lifestyle',title:'Summer Essentials: Linen Edit',img:'https://woodmart.xtemos.com/wp-content/uploads/2016/07/blog-11.jpg'},
+    {date:'23',month:'Apr',cat:'Style',title:'The Art of Effortless Dressing',img:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3.jpg'},
+    {date:'15',month:'Apr',cat:'Trends',title:'10 Ways to Style a Classic Blazer',img:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5.jpg'},
+    {date:'08',month:'Apr',cat:'Craft',title:'Behind the Weave: Our Story',img:'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6.jpg'},
   ];
   document.getElementById('blog-grid').innerHTML = blogs.map(b => `
-    <div class="flex flex-col group cursor-pointer">
-      <div class="aspect-[3/2] w-full mb-6 overflow-hidden relative">
-        <img src="${b.img}" alt="${b.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+    <div class="bg-flat-bg p-8 flex flex-col group cursor-pointer hover:bg-flat-layer transition-colors">
+      <div class="aspect-square w-full mb-6 overflow-hidden relative">
+        <div class="absolute top-4 left-4 bg-flat-bg px-3 py-2 z-10 text-center border border-flat-border">
+          <span class="block font-bold text-lg leading-none">${b.date}</span>
+          <span class="block text-[9px] uppercase tracking-widest text-flat-muted">${b.month}</span>
+        </div>
+        <img src="${b.img}" alt="${b.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
       </div>
-      <div class="flex gap-2 text-[11px] uppercase tracking-widest text-flat-muted mb-3 font-semibold">
-        <span class="hover:text-flat-text transition-colors">${b.cat}</span>
-        <span class="mx-1">/</span>
-        <span class="hover:text-flat-text transition-colors">0 Comments</span>
-      </div>
-      <h3 class="text-flat-text text-[20px] mb-4 leading-snug group-hover:text-flat-muted transition-colors font-serif">${b.title}</h3>
-      <p class="text-flat-muted text-[14px] leading-relaxed mb-5 line-clamp-2">Ac haca ullamcorper donec ante habi tasse donec imperdiet eturpis varius per a augue magna hac. Nec hac et vestibulum duis a tincidunt per a aptent interdum purus feugiat a id aliquet erat himenaeos nunc torquent euismod adipiscing adipiscing dui gravida justo.</p>
-      <a href="#" class="text-[11px] font-bold uppercase tracking-widest text-flat-action hover:text-flat-text self-start transition-colors duration-300">Continue reading</a>
+      <p class="text-[10px] uppercase tracking-widest text-flat-muted mb-3 font-semibold">${b.cat}</p>
+      <h3 class="text-flat-text text-[22px] mb-4 leading-snug group-hover:text-flat-muted transition-colors">${b.title}</h3>
+      <a href="#" class="text-[11px] font-bold uppercase tracking-widest border-b border-flat-text self-start pb-1 mt-auto group-hover:text-flat-muted group-hover:border-flat-muted transition-colors">Read Article</a>
     </div>
   `).join('');
 
@@ -703,38 +585,6 @@
       videoIframe.src = ""; // Stop playing
     }, 300);
     document.body.style.overflow = '';
-  }
-
-  // 7. Insta Loop
-  const instaGridContainer = document.getElementById('insta-grid');
-  if (instaGridContainer) {
-    const instaImagesArray = [
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-woman.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-kids-4.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-3.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-5.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-6.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-10.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-11.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/04/fashion-product-12.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-1.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2024/02/fashion-flat-slide-2.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-glass.jpg',
-      'https://woodmart.xtemos.com/wp-content/uploads/2017/01/cat-img-accesories-9.jpg'
-    ];
-    
-    instaGridContainer.innerHTML = instaImagesArray.map(img => `
-      <div class="aspect-square relative bg-flat-bg overflow-hidden group cursor-pointer border-0 m-0">
-        <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Instagram post" loading="lazy">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-          <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.6" fill="white"/>
-          </svg>
-        </div>
-      </div>
-    `).join('');
   }
 </script>
 </body>
